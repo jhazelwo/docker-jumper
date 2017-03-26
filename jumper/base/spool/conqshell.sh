@@ -32,7 +32,7 @@ for server in `egrep "^[a-z0-9A-Z]" ${tier_file}|awk '{print $1}'`; do
     sh task_${server} > ${server}.log 2>&1 &
 done
 # Wait for all tasks to complete.
-while [ 1 ]; do
+while : ; do
     ls task_* > /dev/null 2>&1 || exit 0
     sleep 1
 done

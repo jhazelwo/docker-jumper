@@ -9,7 +9,6 @@
 #
 # by: "John Hazelwood" <jhazelwo@users.noreply.github.com>
 #
-set -x
 oops(){ echo "${@}"; exit 1; }
 #
 build_rm="--force-rm=true"

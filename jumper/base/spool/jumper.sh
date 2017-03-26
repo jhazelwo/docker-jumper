@@ -19,5 +19,5 @@ echo "${PUBSSHKEY}" > /jumper/doc/AuthorizedKeysFile
 #
 ## SyslogD (choose only one)
 # /sbin/syslogd -n -O /dev/console             # For use with `docker run --tty ...`
-/sbin/syslogd -n -O /jumper/log/syslog        # Log to file, use with `docker run --detach ...`
+/sbin/syslogd -n -O /jumper/log/syslog         # Log to file, use with `docker run --detach ...`
 # /sbin/syslogd -n -R loghost.company.edu:514  # Log to loghost like Splunk or ELK stack.
