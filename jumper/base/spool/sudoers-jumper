@@ -1,0 +1,3 @@
+# This gets installed to /etc/sudoers.d/jumper
+# The default /etc/sudoers file does not need to be modified.
+%human ALL=(ALL) NOPASSWD: /jumper/sbin/sudo-jump.sh

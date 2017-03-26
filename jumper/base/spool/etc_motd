@@ -1,0 +1,4 @@
+# /etc/motd
+
+This is MOTD from docker/base/spool/motd
+Put ascii art here.

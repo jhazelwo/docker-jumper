@@ -1,0 +1,8 @@
+private
+*.pyc
+*.zip
+*.tar
+*.gz
+.idea
+*.rpm
+*.exe

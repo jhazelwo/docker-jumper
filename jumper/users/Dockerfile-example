@@ -1,0 +1,6 @@
+FROM jhazelwo/jumper:1.0
+MAINTAINER "Jumper Admins" <jumper-admins@example.edu>
+ENV TAG 1.0
+ENV PERSON zbeeblebrox
+ENV PUBSSHKEY ssh-rsa AAAAB3NzaC1ychm0bkwbNRVxfQXmR0bYlDG1HBjiTlT4IEmmIKHwHA2JJ+gt3gR9UNhANLmIokaw== person@workstation
+ENV PORT 12345
