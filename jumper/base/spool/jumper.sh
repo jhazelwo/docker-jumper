@@ -5,7 +5,7 @@
 #
 exec >> /jumper/log/jumper.log 2>&1
 date
-oops(){ echo "`date` `hostname` Missing variable $1, check the Dockerfile"; sleep 10 ; exit 1; }
+oops(){ echo "`date` `hostname` Missing variable $1, check the Dockerfile"; sleep 5; exit 1; }
 test -n "$PERSON" || oops 'PERSON'
 test -n "$PUBSSHKEY" || oops 'PUBSSHKEY'
 test -n "$PORT" || oops 'PORT'
