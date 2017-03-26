@@ -15,7 +15,7 @@
 1. "How can I make user's home directory persistent?"
     * Map a directory/drive/mount on your Docker host to /jumper/home
     in the container when the container is run. Check out the
-    `run_all_users.sh` script for examples.
+    `run_all_users.sh` script for examples. See also: [docker.com/tutorials/dockervolumes](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume)
 1. "What do I do when a user leaves the company?"
     1. `docker kill jumper-{username}`
     1. `mv /path/to/Dockerfile-{username} /somewhere/else/`
