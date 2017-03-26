@@ -28,6 +28,17 @@ paste the public SSH key.
 You should be able to SSH as the user and port you specified using your
 private key!
 
+Example Dockerfile-username file:
+
+```dockerfile
+FROM jhazelwo/jumper:1.0
+MAINTAINER "Jumper Admins" <jumper-admins@my-company.tld>
+ENV TAG 1.0
+ENV PERSON zbeeblebrox
+ENV PUBSSHKEY ssh-rsa AAAAB3NzEmmIKHw.......gt3gUNhANLmIokaw= me@laptop
+ENV PORT 12345
+```
+
 # More info:
 
 See the [doc](./doc/) directory for more documentation including a
