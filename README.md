@@ -86,3 +86,5 @@ bit and would only be needed during initial setup or when tag changes
 are needed, but ideally tags shouldn't change that often, if at all.
 The best case in favor of it right now is that there is currently some
 variable duplication in the scripts which I totally hate.
+* Script to run 1 user from 1 Dockerfile where df is arg1.
+* Explain flavors more betterer.

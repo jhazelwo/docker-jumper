@@ -18,6 +18,7 @@ local file (or console), and add something like this:
 logging is the default but is not meant for production use.
 * By default the Jumper containers log to _/jumper/log/syslog_, a
 file that is lost whenever the container is deleted.
+* Please use a log host instead of local logging.
 * Logs can be retained between cotnainer halts by mapping storage
 from your Docker host to _/jumper/log/_ in the containers. See
 _./docker/run_all_users.sh_ for an example on using the

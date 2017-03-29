@@ -5,7 +5,7 @@ RUN install -m 0700 -o 0 -g 0 -d /root/tmp
 RUN apk update && apk add --update openssh tini
 RUN /usr/bin/ssh-keygen -A
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["/jumper/sbin/jumper.sh"]
+CMD ["/jumper/sbin/jumperd"]
 RUN echo "Patched Thu Jan  1 00:00:00 UTC 1970"
 RUN apk upgrade
 
@@ -31,7 +31,7 @@ RUN install -m 0700 -o 1000 -g 1000 -d \
 RUN install -m 0444 -o 0 -g 0 /root/tmp/jumper_doc_banner /jumper/doc/banner
 RUN install -m 0444 -o 0 -g 0 /root/tmp/etc_motd /etc/motd
 RUN install -m 0600 -o 0 -g 0 /root/tmp/jumper_cfg_sshd_config /jumper/cfg/sshd_config
-RUN install -m 0500 -o 0 -g 0 /root/tmp/jumper.sh /jumper/sbin/jumper.sh
+RUN install -m 0500 -o 0 -g 0 /root/tmp/jumperd /jumper/sbin/jumperd
 RUN install -m 0600 -o 0 -g 0 /dev/null /jumper/cfg/RevokedKeys
 RUN install -m 0600 -o 0 -g 0 /dev/null /jumper/log/jumper.log
 RUN install -m 0600 -o 0 -g 0 /dev/null /jumper/log/syslog

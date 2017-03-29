@@ -24,8 +24,8 @@
     1. `docker rmi company/jumper-{username}:X.Y`
 1. "How to limit which servers a person can jump to from Jumper?"
     * Not part of this product yet, and limiting hosts doesn't make
-    sense unless using a jumper-root setup where access the private
-    ssh key is protected with sudo.
+    sense unless using a jumper-root setup where access to root's
+    private ssh key is protected with sudo.
 1. "What about git, or other devel software?"
     * You can install anything you want by putting the needed commands
     in the Dockerfile, but jumper isn't meant to be a good devel

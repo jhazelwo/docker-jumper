@@ -4,30 +4,32 @@
 
 Scripts for managing jumper images and containers
 
-* halt_all_users.sh - Does `docker rm -f` for each
-Dockerfile-{username} in ./users/. __This deletes the running
-containers, erasing any data in the containers, but does not delete the
-images__.
-* rebuild_all_users.sh - Does `docker build` for each
-Dockerfile-{username} in ./users/
-* rebuild_base_image.sh - Does `docker build` for the base image
-./base/Dockerfile
-* run_all_users.sh - Does `docker run` for each Dockerfile-{username}
-in ./users/
-* start_all_users.sh - Does `docker start` for all existing
-jumper-username containers. Does not build or create new
-containers.
-* stop_all_users.sh - Does `docker stop` for all existing
-jumper-username containers. Does not delete data.
+* [halt_all_users.sh](/jumper/halt_all_users.sh) - Does `docker rm -f`
+for all container names matching 'jumper-*'.
+__This deletes the running containers, erasing any data in the
+containers, but does not delete the images__.
+* [rebuild_all_users.sh](/jumper/rebuild_all_users.sh) - Does
+`docker build` for each Dockerfile-{username} in ./users/
+* [rebuild_base_image.sh](/jumper/rebuild_base_image.sh) - Does
+`docker build` for the base image ./base/Dockerfile
+* [run_all_users.sh](/jumper/run_all_users.sh) - Does `docker run` for
+each Dockerfile-{username} in ./users/
+* [start_all_users.sh](/jumper/start_all_users.sh) - Does
+`docker start` for all existing jumper-username containers. Does not
+build images. Does not create new containers.
+* [stop_all_users.sh](/jumper/stop_all_users.sh) - Does `docker stop`
+for all existing jumper-username containers. Does not delete data.
 
 ### jumper/base
 
 Build context for the base image.
 
-* Dockerfile - The base image that all user images inherit. This is
-where you'd put custom software installs that all users need (like
-LDAP).
-* spool - All config files, scripts and docs needs by Jumper.
+* [Dockerfile](/jumper/base/Dockerfile) - The base image that all user
+images inherit. This is where you'd put custom software installs that
+all users need like LDAP/Kerberos/IPA/Splunk/or any other required
+software clients.
+* [spool/](/jumper/base/spool) - All config files, scripts and docs
+needs by Jumper.
 
 ### jumper/users
 

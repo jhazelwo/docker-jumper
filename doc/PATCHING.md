@@ -2,11 +2,12 @@
 
 ## String trigger method
 
-The simplest way to patch is to make a change to base/Dockerfile
- above the `apk update` line then rebuild the base image and all user
-  images.
+The simplest way to patch is to make a change to
+[jumper/base/Dockerfile](/jumper/base/Dockerfile)
+above the `apk update` line then rebuild the base image and all user
+images.
 
-* Example from _docker/base/Dockerfile_:
+* Example from [jumper/base/Dockerfile](/jumper/base/Dockerfile):
 
 ```dockerfile
 FROM alpine:3.5
