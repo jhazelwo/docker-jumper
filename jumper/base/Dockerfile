@@ -52,3 +52,9 @@ RUN addgroup -g 1000 human
 #RUN ln -sv /jumper/bin/jump.sh /usr/local/bin/jump
 #RUN ln -sv /jumper/bin/conqshell.sh /usr/local/bin/conqshell
 # ...end if jumper-root
+
+#
+# If you want to use LDAP, IPA or some other directory service to authenticate your users
+# then add the client installation and setup work here. Afterwards you may need to adjust
+# spool/jumperd to either prevent it from creating a local user account, or do other work
+# required by your software.
