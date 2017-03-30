@@ -16,12 +16,12 @@ On your [Docker](https://www.docker.com/) host:
 
 1. `git clone https://github.com/jhazelwo/docker-jumper.git`
 1. `cd docker-jumper`
+1. `./jumper/build_base.sh`
 1. Look at the examples in [jumper/users/](jumper/users/) and create
 your own _Dockerfile-username_, assign a port, pick a username and
-paste the public SSH key.
-    * Remove or rename any _jumper/users/Dockerfile-{username}_ files
-    you don't want to create images for.
-1. `./jumper/build_base.sh`
+paste the public SSH key. Remember to remove any
+_jumper/users/Dockerfile-{username}_ files you don't want to create
+images for.
 1. `./jumper/build_users.sh`
 1. `./jumper/run_users.sh`
 
