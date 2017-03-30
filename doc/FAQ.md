@@ -42,9 +42,9 @@
 1. "How can I start all containers previously stopped?"
     * `./jumper/start_all_users.sh`
 1. "What files need to be updated if I want to change the image tag?"
-    * All of the Dockerfiles, base and user, and you have to change
-    the `ENV TAG x.y` __and__ the `FROM jhazelwo/jumper:x.y` to all
-    be the same, otherwise the rebuild and run scripts will break.
+    * The `FROM` line in all of the user Dockerfiles, and the
+    `image_tag` variable in
+    [jumper/cfg/settings.sh](/jumper/cfg/settings.sh)
 1. "This looks complicated."
     * Relax, it's just shell scripts, a couple Dockerfiles and
     customized but normal SSH configs.
@@ -54,3 +54,16 @@ keys."
 1. "Oh, come on man, just tell me what to run."
     * `ssh-keygen -t rsa -b 8192 -f ~/.ssh/id_rsa -N ''`
     * The public key will be _~/.ssh/id_rsa.pub_
+
+# Other thoughts
+
+1. Why not put an image on Docker hub so we can just run containers
+without worrying about building a base image?
+    * It feels like a waste of time in this case. In real-world
+scenarios admins will need to control when, if, and how they patch their
+images. Putting a base image on Docker hub will get new users online a
+bit quicker, but it's only saving them 1 command, and they'll eventually
+need to build their own base images anyway.
+    * Furthermore OS patches that relate to the Alpine image Jumper is
+based on get released on their own schedule, and Jumper's updates do not
+automatically sync up with them.
