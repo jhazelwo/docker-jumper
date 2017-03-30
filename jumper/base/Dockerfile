@@ -58,3 +58,5 @@ RUN addgroup -g 1000 human
 # then add the client installation and setup work here. Afterwards you may need to adjust
 # spool/jumperd to either prevent it from creating a local user account, or do other work
 # required by your software.
+# HINT: Try to do as much work as possible in this Dockerfile. Avoid adding complexity to
+# the user's Dockerfiles or the spool/jumperd script.
