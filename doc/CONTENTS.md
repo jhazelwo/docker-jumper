@@ -42,7 +42,8 @@ Build context for user images.
 * Dockerfile-{username} - A user image, this is where you define
 username, port, ssh key and any additional software a specific user
 would need.
-* By default the included [build](../jumper/build_users.sh) and
+
+> Note: By default the included [build](../jumper/build_users.sh) and
 [run](../jumper/run_users.sh) user scripts will __search
 jumper/users/ recursively__ allowing you to organize your company's
 Dockerfiles into sub-directories.
