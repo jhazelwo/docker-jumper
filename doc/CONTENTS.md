@@ -22,6 +22,7 @@ for all existing jumper-username containers. Does not delete data.
 for all container names matching 'jumper-*'.
 __This deletes the running containers, erasing any data in the
 containers, but does not delete the images__.
+* [prune_images.sh](/jumper/prune_images.sh) - Deletes orphaned images.
 
 ### jumper/base
 
