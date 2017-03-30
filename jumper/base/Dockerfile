@@ -1,6 +1,5 @@
 FROM alpine:3.5
-MAINTAINER "Jumper Admins" <jumper-admins@example.gov>
-ENV TAG 1.0
+MAINTAINER "Jumper Admins" <jumper-admins@example.edu>
 RUN install -m 0700 -o 0 -g 0 -d /root/tmp
 RUN apk update && apk add --update openssh tini
 RUN /usr/bin/ssh-keygen -A

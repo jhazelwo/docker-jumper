@@ -16,8 +16,8 @@
 # ./run_users.sh users/Dockerfile-bob* users/devel/Dockerfile-stan users/sales/
 #
 oops(){ echo "${@}"; exit 1; }
-base_tag="jhazelwo/jumper-"
 build_context=$(dirname $0)/users/
+. $(dirname $0)/cfg/settings.sh
 if [ $# -eq 0 ]; then
     targets="`find $build_context -type f -name Dockerfile-\*`"
 else
@@ -36,14 +36,16 @@ for dockerfile in $targets; do
         oops "Failed to get PERSON from ${dockerfile}. Username must be numbers and/or lowercase letters only."
     PORT=`egrep 'ENV PORT ' $dockerfile|awk '{print $3}'|egrep "^[0-9]{1,5}$"` || \
         oops "Failed to get PORT from ${dockerfile}. Looking for 'ENV PORT #####'"
-    version=`egrep '^ENV TAG ' $dockerfile|awk '{print $3}'`
-    [ -z $version ] && oops "Failed to get version from Dockerfile. Looking for 'ENV TAG #.#'"
-    nodename="--hostname=jumper-${PERSON}"
-    runname="--name=jumper-${PERSON}"
-    run_rm="--detach"
-    ports="-p ${PORT}:${PORT}"
+    #
+    #
     #volumes="-v /export/home/${PERSON}:/jumper/home"  # Map NFS to home dir in container.
-    startre="--restart=unless-stopped"
-    image_name="${base_tag}${PERSON}:${version}"
-    docker run $nodename $runname $run_rm $ports $volumes $startre $image_name
+    #
+    #
+    docker run ${volumes} \
+        --hostname="${container_name_prefix}-${PERSON}" \
+        --name="${container_name_prefix}-${PERSON}" \
+        --detach \
+        --publish="${PORT}:${PORT}" \
+        --restart=unless-stopped \
+        "${image_repo_name}/${container_name_prefix}-${PERSON}:${image_tag}"
 done

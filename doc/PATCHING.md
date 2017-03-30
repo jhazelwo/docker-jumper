@@ -31,16 +31,18 @@ __Warning, this will delete the running containers!__
 ```
 sed -i -e "s/Patched .*$/Patched $(date)\"/g" jumper/base/Dockerfile
 ./jumper/halt_all_users.sh --force
-./jumper/rebuild_base_image.sh
-./jumper/rebuild_all_users.sh clean
-./jumper/run_all_users.sh
+./jumper/build_base.sh
+./jumper/build_users.sh
+./jumper/run_users.sh
 ```
 
 ## Tags method
 
 Another way to handle patching would be to increment the image tag,
- but that requires changing the `FROM` and `ENV TAG` lines in ALL of
- the Dockerfiles; and, of course, you still have to delete the old
- containers and run new ones.
+but that requires changing the image_tag varible in
+[jumper/cfg/settings.sh](/jumper/cfg/settings.sh) and the `FROM` line
+in __ALL__ of the Dockerfiles in [jumper/user/](/jumper/user/). After
+you do that you need to do the halt/build/build/run procedure from
+above.
 
 In either case, using _latest_ as your image tag is __NOT__ recommended!

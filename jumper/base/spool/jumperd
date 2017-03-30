@@ -1,7 +1,7 @@
 #!/bin/sh
+# by: "John Hazelwood" <jhazelwo@users.noreply.github.com>
 #
 # /jumper/sbin/jumperd - wrapper script to setup user, start SSHD and SyslogD
-# by: "John Hazelwood" <jhazelwo@users.noreply.github.com>
 #
 exec >> /jumper/log/jumper.log 2>&1
 date

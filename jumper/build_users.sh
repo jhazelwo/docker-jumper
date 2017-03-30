@@ -16,10 +16,8 @@
 # ./build_users.sh users/Dockerfile-bob* users/devel/Dockerfile-stan users/sales/
 #
 oops(){ echo "${@}"; exit 1; }
-#
-build_rm="--force-rm=true"
-base_tag="jhazelwo/jumper-"
 build_context=$(dirname $0)/users/
+. $(dirname $0)/cfg/settings.sh
 if [ $# -eq 0 ]; then
     targets="`find $build_context -type f -name Dockerfile-\*`"
 else
@@ -34,9 +32,11 @@ else
     done
 fi
 for dockerfile in $targets; do
-    person=`egrep 'ENV PERSON ' $dockerfile|awk '{print $3}'|egrep "^[a-z0-9]+$"` || \
-        oops "Failed to get person from ${dockerfile}. Username must be numbers and/or lowercase letters only."
-    version=`egrep '^ENV TAG ' $dockerfile|awk '{print $3}'`
-    [ -z $version ] && oops "Failed to get version from Dockerfile. Looking for 'ENV TAG X.Y'"
-    docker build $build_rm --tag="${base_tag}${person}:${version}" --file=$dockerfile $build_context || exit $?
+    PERSON=`egrep 'ENV PERSON ' $dockerfile|awk '{print $3}'|egrep "^[a-z0-9]+$"` || \
+        oops "Failed to get PERSON from ${dockerfile}. Username must be numbers and/or lowercase letters only."
+    docker build \
+        --force-rm=true \
+        --tag="${image_repo_name}/${container_name_prefix}-${PERSON}:${image_tag}" \
+        --file="${dockerfile}" \
+        $build_context || exit $?
 done

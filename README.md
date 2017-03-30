@@ -21,9 +21,9 @@ your own _Dockerfile-username_, assign a port, pick a username and
 paste the public SSH key.
     * Remove or rename any _jumper/users/Dockerfile-{username}_ files
     you don't want to create images for.
-1. `./jumper/rebuild_base_image.sh`
-1. `./jumper/rebuild_all_users.sh`
-1. `./jumper/run_all_users.sh`
+1. `./jumper/build_base.sh`
+1. `./jumper/build_users.sh`
+1. `./jumper/run_users.sh`
 
 You should be able to SSH as the user and port you specified using your
 private key!
@@ -33,13 +33,16 @@ Example Dockerfile-username file:
 ```dockerfile
 FROM jhazelwo/jumper:1.0
 MAINTAINER "Jumper Admins" <jumper-admins@my-company.tld>
-ENV TAG 1.0
 ENV PERSON zbeeblebrox
 ENV PUBSSHKEY ssh-rsa AAAAB3NzEmmIKHw.......gt3gUNhANLmIokaw= me@laptop
 ENV PORT 12345
 ```
 
 # More info:
+
+The [jumper/cfg/settings.sh](/jumper/cfg/settings.sh) file has the
+repo name, container name and tag settings that the included scripts
+use when building and running containers.
 
 See the [doc](./doc/) directory for more documentation including a
 [FAQ](doc/FAQ.md), the best ways to [Log](doc/LOGGING.md),
@@ -80,10 +83,4 @@ welcome!
 use sudosh! It's not as solid as you might think.
 * Group-based / multi-user containers. Almost defeats the purpose but
 an easy fork candidate.
-* jumper/jumper.cfg, centralized config for image, tag and container
-naming. Not convinced by this yet, it would obfuscate script function a
-bit and would only be needed during initial setup or when tag changes
-are needed, but ideally tags shouldn't change that often, if at all.
-The best case in favor of it right now is that there is currently some
-variable duplication in the scripts which I totally hate.
 * Explain flavors more betterer.
