@@ -61,9 +61,9 @@ keys."
 without worrying about building a base image?
     * It feels like a waste of time in this case. In real-world
 scenarios admins will need to control when, if, and how they patch their
-images. Putting a base image on Docker hub will get new users online a
-bit quicker, but it's only saving them 1 command, and they'll eventually
-need to build their own base images anyway.
+images. Putting a base image on Docker hub will get new sysadmins
+up-and-running a bit quicker, but it's only saving them 1 command, and
+they'll eventually need to build their own base images anyway.
     * Furthermore OS patches that relate to the Alpine image Jumper is
 based on get released on their own schedule, and Jumper's updates do not
 automatically sync up with them.
