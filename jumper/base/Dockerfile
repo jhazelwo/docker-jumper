@@ -6,7 +6,7 @@ RUN /usr/bin/ssh-keygen -A
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["/jumper/sbin/jumperd"]
 RUN echo "Patched Thu Jan  1 00:00:00 UTC 1970"
-RUN apk upgrade
+RUN apk update && apk upgrade
 
 COPY spool/* /root/tmp/
 
